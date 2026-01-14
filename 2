@@ -1,0 +1,168 @@
+import java.util.Vector;
+import java.util.ArrayList;
+
+public class Assignment_3_2 {
+    
+    public static void main(String[] args) {
+        System.out.println("=== Demonstrating Vector Constructors and Methods ===\n");
+        
+        // ========== VECTOR CONSTRUCTORS ==========
+        System.out.println("---------- VECTOR CONSTRUCTORS ----------");
+        
+        // Constructor 1: No-arg constructor (default capacity 10)
+        Vector<String> vector1 = new Vector<>();
+        System.out.println("1. Vector() - Default constructor");
+        System.out.println("   Initial size: " + vector1.size());
+        System.out.println("   Initial capacity: " + vector1.capacity());
+        
+        // Constructor 2: Vector(int initialCapacity)
+        Vector<String> vector2 = new Vector<>(5);
+        System.out.println("\n2. Vector(int initialCapacity) - Capacity 5");
+        System.out.println("   Initial size: " + vector2.size());
+        System.out.println("   Initial capacity: " + vector2.capacity());
+        
+        // Constructor 3: Vector(int initialCapacity, int capacityIncrement)
+        Vector<String> vector3 = new Vector<>(3, 2);
+        System.out.println("\n3. Vector(int initialCapacity, int capacityIncrement) - Capacity 3, Increment 2");
+        System.out.println("   Initial size: " + vector3.size());
+        System.out.println("   Initial capacity: " + vector3.capacity());
+        
+        // Constructor 4: Vector(Collection<? extends E> c)
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        Vector<String> vector4 = new Vector<>(list);
+        System.out.println("\n4. Vector(Collection<? extends E> c) - From ArrayList");
+        System.out.println("   Vector contents: " + vector4);
+        System.out.println("   Size: " + vector4.size());
+        
+        // ========== VECTOR METHODS DEMONSTRATION ==========
+        System.out.println("\n\n---------- VECTOR METHODS (15 Methods) ----------");
+        
+        Vector<Integer> vec = new Vector<>();
+        
+        // Method 1: add(E element) - Appends element to the end
+        System.out.println("\n1. add(E element) - Adding elements");
+        vec.add(10);
+        vec.add(20);
+        vec.add(30);
+        System.out.println("   After adding 10, 20, 30: " + vec);
+        
+        // Method 2: add(int index, E element) - Inserts element at specified index
+        System.out.println("\n2. add(int index, E element) - Insert at index 1");
+        vec.add(1, 15);
+        System.out.println("   After inserting 15 at index 1: " + vec);
+        
+        // Method 3: addElement(E obj) - Adds element to end (legacy method)
+        System.out.println("\n3. addElement(E obj) - Legacy method to add element");
+        vec.addElement(40);
+        System.out.println("   After addElement(40): " + vec);
+        
+        // Method 4: get(int index) - Returns element at specified index
+        System.out.println("\n4. get(int index) - Get element at index 2");
+        int element = vec.get(2);
+        System.out.println("   Element at index 2: " + element);
+        
+        // Method 5: elementAt(int index) - Returns element at index (legacy method)
+        System.out.println("\n5. elementAt(int index) - Legacy method to get element");
+        int elem = vec.elementAt(0);
+        System.out.println("   Element at index 0: " + elem);
+        
+        // Method 6: set(int index, E element) - Replaces element at specified index
+        System.out.println("\n6. set(int index, E element) - Replace element at index 1");
+        int oldValue = vec.set(1, 25);
+        System.out.println("   Old value: " + oldValue);
+        System.out.println("   Vector after set: " + vec);
+        
+        // Method 7: setElementAt(E obj, int index) - Sets element at index (legacy)
+        System.out.println("\n7. setElementAt(E obj, int index) - Legacy method to set element");
+        vec.setElementAt(35, 2);
+        System.out.println("   After setElementAt(35, 2): " + vec);
+        
+        // Method 8: remove(int index) - Removes element at specified index
+        System.out.println("\n8. remove(int index) - Remove element at index 1");
+        int removed = vec.remove(1);
+        System.out.println("   Removed element: " + removed);
+        System.out.println("   Vector after remove: " + vec);
+        
+        // Method 9: remove(Object o) - Removes first occurrence of element
+        System.out.println("\n9. remove(Object o) - Remove element 30");
+        boolean removedBool = vec.remove(Integer.valueOf(30));
+        System.out.println("   Element removed: " + removedBool);
+        System.out.println("   Vector after remove: " + vec);
+        
+        // Method 10: removeElement(Object obj) - Removes element (legacy method)
+        System.out.println("\n10. removeElement(Object obj) - Legacy method to remove element");
+        boolean removedElem = vec.removeElement(Integer.valueOf(35));
+        System.out.println("   Element removed: " + removedElem);
+        System.out.println("   Vector after removeElement: " + vec);
+        
+        // Add some elements for further demonstrations
+        vec.add(50);
+        vec.add(60);
+        vec.add(50);
+        vec.add(70);
+        System.out.println("\n   Added more elements: " + vec);
+        
+        // Method 11: size() - Returns number of elements
+        System.out.println("\n11. size() - Get number of elements");
+        System.out.println("   Size of vector: " + vec.size());
+        
+        // Method 12: capacity() - Returns current capacity
+        System.out.println("\n12. capacity() - Get current capacity");
+        System.out.println("   Capacity of vector: " + vec.capacity());
+        
+        // Method 13: isEmpty() - Checks if vector is empty
+        System.out.println("\n13. isEmpty() - Check if vector is empty");
+        System.out.println("   Is vector empty? " + vec.isEmpty());
+        Vector<String> emptyVec = new Vector<>();
+        System.out.println("   Is emptyVec empty? " + emptyVec.isEmpty());
+        
+        // Method 14: contains(Object o) - Checks if vector contains element
+        System.out.println("\n14. contains(Object o) - Check if vector contains 50");
+        System.out.println("   Contains 50? " + vec.contains(50));
+        System.out.println("   Contains 100? " + vec.contains(100));
+        
+        // Method 15: indexOf(Object o) - Returns index of first occurrence
+        System.out.println("\n15. indexOf(Object o) - Find index of element");
+        System.out.println("   Index of 50: " + vec.indexOf(50));
+        System.out.println("   Index of 60: " + vec.indexOf(60));
+        System.out.println("   Index of 99 (not found): " + vec.indexOf(99));
+        
+        // Bonus methods for better demonstration
+        System.out.println("\n\n---------- BONUS METHODS (Additional Demonstrations) ----------");
+        
+        // lastIndexOf(Object o) - Returns index of last occurrence
+        System.out.println("\n16. lastIndexOf(Object o) - Find last index of element");
+        System.out.println("   Last index of 50: " + vec.lastIndexOf(50));
+        
+        // firstElement() - Returns first element
+        System.out.println("\n17. firstElement() - Get first element");
+        System.out.println("   First element: " + vec.firstElement());
+        
+        // lastElement() - Returns last element
+        System.out.println("\n18. lastElement() - Get last element");
+        System.out.println("   Last element: " + vec.lastElement());
+        
+        // clear() - Removes all elements
+        System.out.println("\n19. clear() - Remove all elements");
+        Vector<Integer> vecCopy = new Vector<>(vec);
+        vecCopy.clear();
+        System.out.println("   Original vector: " + vec);
+        System.out.println("   Cleared vector: " + vecCopy);
+        System.out.println("   Size after clear: " + vecCopy.size());
+        
+        // toArray() - Converts vector to array
+        System.out.println("\n20. toArray() - Convert vector to array");
+        Object[] arr = vec.toArray();
+        System.out.print("   Array: [");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+        
+        System.out.println("\n=== Demonstration Complete ===");
+    }
+}
