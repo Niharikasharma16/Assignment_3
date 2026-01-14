@@ -1,0 +1,103 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Iterator;
+
+public class Assigment_3_1 {
+
+    public static void main(String[] args) {
+        System.out.println("=== Demonstrating ArrayList constructors ===");
+
+        // 1) No‑arg constructor: creates an empty list
+        ArrayList<String> list1 = new ArrayList<>();
+        System.out.println("list1 (default constructor): " + list1);
+
+        // 2) Constructor with initial capacity
+        ArrayList<String> list2 = new ArrayList<>(5);
+        list2.add("A");
+        list2.add("B");
+        System.out.println("list2 (capacity 5): " + list2);
+
+        // 3) Constructor from another Collection
+        Collection<String> baseCollection = Arrays.asList("X", "Y", "Z");
+        ArrayList<String> list3 = new ArrayList<>(baseCollection);
+        System.out.println("list3 (from collection): " + list3);
+
+        System.out.println("\n=== Demonstrating 15 ArrayList methods ===");
+
+        // Use one main list to demonstrate methods
+        ArrayList<String> fruits = new ArrayList<>();
+
+        // Method 1: add(E e)
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Cherry");
+        System.out.println("After add(E): " + fruits);
+
+        // Method 2: add(int index, E element)
+        fruits.add(1, "Mango");
+        System.out.println("After add(index, E): " + fruits);
+
+        // Method 3: get(int index)
+        String firstFruit = fruits.get(0);
+        System.out.println("get(0): " + firstFruit);
+
+        // Method 4: set(int index, E element)
+        fruits.set(2, "Orange");
+        System.out.println("After set(2, \"Orange\"): " + fruits);
+
+        // Method 5: remove(Object o)
+        fruits.remove("Banana");
+        System.out.println("After remove(\"Banana\"): " + fruits);
+
+        // Method 6: remove(int index)
+        fruits.remove(0);
+        System.out.println("After remove(0): " + fruits);
+
+        // Method 7: size()
+        System.out.println("size(): " + fruits.size());
+
+        // Method 8: isEmpty()
+        System.out.println("isEmpty(): " + fruits.isEmpty());
+
+        // Method 9: contains(Object o)
+        System.out.println("contains(\"Mango\"): " + fruits.contains("Mango"));
+
+        // Method 10: indexOf(Object o)
+        System.out.println("indexOf(\"Mango\"): " + fruits.indexOf("Mango"));
+
+        // Method 11: lastIndexOf(Object o)
+        fruits.add("Mango");
+        System.out.println("After adding another \"Mango\": " + fruits);
+        System.out.println("lastIndexOf(\"Mango\"): " + fruits.lastIndexOf("Mango"));
+
+        // Method 12: clear()
+        ArrayList<String> tempList = new ArrayList<>(fruits);
+        tempList.clear();
+        System.out.println("tempList after clear(): " + tempList);
+
+        // Method 13: addAll(Collection<? extends E> c)
+        ArrayList<String> moreFruits = new ArrayList<>();
+        moreFruits.add("Grapes");
+        moreFruits.add("Pineapple");
+        fruits.addAll(moreFruits);
+        System.out.println("After addAll(Collection): " + fruits);
+
+        // Method 14: toArray()
+        Object[] fruitsArray = fruits.toArray();
+        System.out.println("toArray(): " + Arrays.toString(fruitsArray));
+
+        // Method 15: iterator()
+        System.out.print("iterator(): ");
+        Iterator<String> it = fruits.iterator();
+        while (it.hasNext()) {
+            System.out.print(it.next() + " ");
+        }
+        System.out.println();
+
+        // Extra: sort using sort(Comparator) from List interface (Java 8+)
+        fruits.sort(Comparator.naturalOrder());
+        System.out.println("After sort(Comparator.naturalOrder()): " + fruits);
+    }
+}
