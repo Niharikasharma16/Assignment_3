@@ -1,0 +1,130 @@
+import java.util.*;
+
+public class TreeMapDemo {
+
+    public static void main(String[] args) {
+
+        System.out.println("====== TreeMap Constructors + Methods Demo ======\n");
+        TreeMap<Integer, String> students = new TreeMap<>();
+        System.out.println("1) TreeMap() -> Created empty TreeMap");
+
+        // put()
+        students.put(103, "Rahul");
+        students.put(101, "Niharika");
+        students.put(105, "Aman");
+        students.put(102, "Sneha");
+        students.put(104, "Priya");
+
+        System.out.println("After put(): " + students);
+        TreeMap<Integer, String> reverseMap = new TreeMap<>(Collections.reverseOrder());
+        reverseMap.putAll(students);
+        System.out.println("\n2) TreeMap(Comparator) -> Reverse Order TreeMap");
+        System.out.println("Reverse Map: " + reverseMap);
+        HashMap<Integer, String> tempMap = new HashMap<>();
+        tempMap.put(201, "Riya");
+        tempMap.put(203, "Karan");
+        tempMap.put(202, "Mahi");
+
+        TreeMap<Integer, String> fromMap = new TreeMap<>(tempMap);
+        System.out.println("\n3) TreeMap(Map) -> Created from HashMap");
+        System.out.println("From Map: " + fromMap);
+        SortedMap<Integer, String> sortedPart = students.subMap(102, 105); // 102 to 104
+        TreeMap<Integer, String> fromSortedMap = new TreeMap<>(sortedPart);
+        System.out.println("\n4) TreeMap(SortedMap) -> Created from SortedMap (subMap)");
+        System.out.println("From SortedMap: " + fromSortedMap);
+
+        System.out.println("\n=================================================");
+        System.out.println("Now demonstrating 15+ TreeMap methods on 'students'");
+        System.out.println("=================================================\n");
+
+        // 1) size()
+        System.out.println("1) size(): " + students.size());
+
+        // 2) isEmpty()
+        System.out.println("2) isEmpty(): " + students.isEmpty());
+
+        // 3) containsKey()
+        System.out.println("3) containsKey(103): " + students.containsKey(103));
+
+        // 4) containsValue()
+        System.out.println("4) containsValue(\"Aman\"): " + students.containsValue("Aman"));
+
+        // 5) get()
+        System.out.println("5) get(104): " + students.get(104));
+
+        // 6) firstKey()
+        System.out.println("6) firstKey(): " + students.firstKey());
+
+        // 7) lastKey()
+        System.out.println("7) lastKey(): " + students.lastKey());
+
+        // 8) firstEntry()
+        System.out.println("8) firstEntry(): " + students.firstEntry());
+
+        // 9) lastEntry()
+        System.out.println("9) lastEntry(): " + students.lastEntry());
+
+        // 10) higherKey()
+        System.out.println("10) higherKey(103): " + students.higherKey(103));
+
+        // 11) lowerKey()
+        System.out.println("11) lowerKey(103): " + students.lowerKey(103));
+
+        // 12) ceilingKey()
+        System.out.println("12) ceilingKey(103): " + students.ceilingKey(103));
+
+        // 13) floorKey()
+        System.out.println("13) floorKey(103): " + students.floorKey(103));
+
+        // 14) pollFirstEntry()
+        System.out.println("\n14) pollFirstEntry(): " + students.pollFirstEntry());
+        System.out.println("After pollFirstEntry(): " + students);
+
+        // 15) pollLastEntry()
+        System.out.println("\n15) pollLastEntry(): " + students.pollLastEntry());
+        System.out.println("After pollLastEntry(): " + students);
+
+        // putIfAbsent()
+        students.putIfAbsent(106, "Neha");
+        System.out.println("\nExtra) putIfAbsent(106, \"Neha\"): " + students);
+
+        // replace()
+        students.replace(102, "Sneha", "Sneha Sharma");
+        System.out.println("Extra) replace(102, \"Sneha\", \"Sneha Sharma\"): " + students);
+
+        // remove()
+        students.remove(105);
+        System.out.println("Extra) remove(105): " + students);
+
+        // subMap(), headMap(), tailMap()
+        System.out.println("\n--- Range Views ---");
+
+        // 16) headMap()
+        System.out.println("16) headMap(104): " + students.headMap(104));
+
+        // 17) tailMap()
+        System.out.println("17) tailMap(104): " + students.tailMap(104));
+
+        // 18) subMap()
+        System.out.println("18) subMap(102, 106): " + students.subMap(102, 106));
+        // keySet(), values(), entrySet()
+        
+        System.out.println("\n--- Collections Views ---");
+
+        // 19) keySet()
+        System.out.println("19) keySet(): " + students.keySet());
+
+        // 20) values()
+        System.out.println("20) values(): " + students.values());
+
+        // 21) entrySet()
+        System.out.println("21) entrySet(): " + students.entrySet());
+        // clear()
+        
+        System.out.println("\n22) clear()");
+        students.clear();
+        System.out.println("After clear(): " + students);
+
+        System.out.println("\n====== Program Finished Successfully ======");
+    }
+}
