@@ -1,0 +1,105 @@
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Set;
+import java.util.Collection;
+
+public class HashtableDemo {
+
+    public static void main(String[] args) {
+
+        System.out.println("======= Hashtable Constructors Demo =======\n");
+       
+        Hashtable<Integer, String> ht1 = new Hashtable<>();
+        ht1.put(1, "Delhi");
+        ht1.put(2, "Mumbai");
+        ht1.put(3, "Pune");
+        System.out.println("1) Hashtable() -> " + ht1);
+        Hashtable<Integer, String> ht2 = new Hashtable<>(10);
+        ht2.put(10, "Red");
+        ht2.put(20, "Blue");
+        System.out.println("2) Hashtable(initialCapacity) -> " + ht2);
+
+        Hashtable<Integer, String> ht3 = new Hashtable<>(8, 0.75f);
+        ht3.put(101, "Laptop");
+        ht3.put(102, "Phone");
+        System.out.println("3) Hashtable(initialCapacity, loadFactor) -> " + ht3);
+
+        Hashtable<Integer, String> ht4 = new Hashtable<>(ht1);
+        System.out.println("4) Hashtable(existingMap) -> " + ht4);
+
+        System.out.println("\n==========================================");
+        System.out.println("Now let's try 15 useful Hashtable methods!");
+        System.out.println("==========================================\n");
+
+        Hashtable<Integer, String> students = new Hashtable<>();
+        students.put(1, "Niharika");
+        students.put(2, "Rohan");
+        students.put(3, "Simran");
+        students.put(4, "Rohit");
+
+        System.out.println("Current Hashtable: " + students);
+
+        // 1) put()
+        students.put(5, "Aarav");
+        System.out.println("\n1) put(5, \"Aarav\") -> " + students);
+
+        // 2) get()
+        System.out.println("2) get(2) -> " + students.get(2));
+
+        // 3) containsKey()
+        System.out.println("3) containsKey(4) -> " + students.containsKey(4));
+
+        // 4) containsValue()
+        System.out.println("4) containsValue(\"Simran\") -> " + students.containsValue("Simran"));
+
+        // 5) remove()
+        students.remove(4);
+        System.out.println("5) remove(4) -> " + students);
+
+        // 6) size()
+        System.out.println("6) size() -> " + students.size());
+
+        // 7) isEmpty()
+        System.out.println("7) isEmpty() -> " + students.isEmpty());
+
+        // 8) keySet()
+        Set<Integer> keys = students.keySet();
+        System.out.println("8) keySet() -> " + keys);
+
+        // 9) values()
+        Collection<String> vals = students.values();
+        System.out.println("9) values() -> " + vals);
+
+        // 10) entrySet()
+        System.out.println("10) entrySet() -> " + students.entrySet());
+
+        // 11) putIfAbsent()
+        students.putIfAbsent(3, "NewName"); // won't change
+        students.putIfAbsent(6, "Ishita");  // will add
+        System.out.println("11) putIfAbsent() -> " + students);
+
+        // 12) replace(key, value)
+        students.replace(1, "Niharika Sharma");
+        System.out.println("12) replace(1, \"Niharika Sharma\") -> " + students);
+
+        // 13) replace(key, oldValue, newValue)
+        students.replace(2, "Rohan", "Rohan Kumar");
+        System.out.println("13) replace(2, \"Rohan\", \"Rohan Kumar\") -> " + students);
+
+        // 14) clone()
+        Hashtable<Integer, String> copy = (Hashtable<Integer, String>) students.clone();
+        System.out.println("14) clone() -> " + copy);
+
+        // 15) clear()
+        Hashtable<Integer, String> temp = new Hashtable<>(students);
+        temp.clear();
+        System.out.println("15) clear() on temp -> " + temp);
+
+        System.out.println("\nSmall display using loop:");
+        for (Map.Entry<Integer, String> e : students.entrySet()) {
+            System.out.println("ID: " + e.getKey() + "  Name: " + e.getValue());
+        }
+
+        System.out.println("\nDone ");
+    }
+}
