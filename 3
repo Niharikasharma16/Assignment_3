@@ -1,0 +1,108 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Collection;
+
+public class HashMapDemo {
+
+    public static void main(String[] args) {
+
+        System.out.println("====== HashMap Constructors + Methods Demo ======\n");
+        HashMap<Integer, String> map1 = new HashMap<>();
+        map1.put(1, "Apple");
+        map1.put(2, "Mango");
+        map1.put(3, "Banana");
+
+        System.out.println("1) Default Constructor HashMap(): " + map1);
+        HashMap<Integer, String> map2 = new HashMap<>(10);
+        map2.put(10, "Red");
+        map2.put(20, "Blue");
+        map2.put(30, "Green");
+
+        System.out.println("2) Constructor HashMap(initialCapacity): " + map2);
+        HashMap<Integer, String> map3 = new HashMap<>(8, 0.75f);
+        map3.put(101, "Rahul");
+        map3.put(102, "Neha");
+        map3.put(103, "Aman");
+
+        System.out.println("3) Constructor HashMap(initialCapacity, loadFactor): " + map3);-
+        HashMap<Integer, String> map4 = new HashMap<>(map1);
+        System.out.println("4) Constructor HashMap(existingMap): " + map4);
+
+        System.out.println("\n---------------------------------------------");
+        System.out.println("Now let's test 15 important HashMap methods!");
+        System.out.println("---------------------------------------------\n");
+
+        HashMap<Integer, String> students = new HashMap<>();
+        students.put(1, "Niharika");
+        students.put(2, "Vansh");
+        students.put(3, "Simran");
+        students.put(4, "Rohit");
+
+        System.out.println("Current Students Map: " + students);
+
+        // 1) put()
+        students.put(5, "Aarav");
+        System.out.println("\n1) put(5, \"Aarav\") -> " + students);
+
+        // 2) get()
+        System.out.println("2) get(3) -> " + students.get(3));
+
+        // 3) containsKey()
+        System.out.println("3) containsKey(2) -> " + students.containsKey(2));
+
+        // 4) containsValue()
+        System.out.println("4) containsValue(\"Rohit\") -> " + students.containsValue("Rohit"));
+
+        // 5) remove(key)
+        students.remove(4);
+        System.out.println("5) remove(4) -> " + students);
+
+        // 6) size()
+        System.out.println("6) size() -> " + students.size());
+
+        // 7) isEmpty()
+        System.out.println("7) isEmpty() -> " + students.isEmpty());
+
+        // 8) keySet()
+        Set<Integer> keys = students.keySet();
+        System.out.println("8) keySet() -> " + keys);
+
+        // 9) values()
+        Collection<String> values = students.values();
+        System.out.println("9) values() -> " + values);
+
+        // 10) entrySet()
+        Set<Map.Entry<Integer, String>> entries = students.entrySet();
+        System.out.println("10) entrySet() -> " + entries);
+
+        // 11) putIfAbsent()
+        students.putIfAbsent(2, "NewName");
+        students.putIfAbsent(6, "Ishita");
+        System.out.println("11) putIfAbsent(2, \"NewName\") & putIfAbsent(6, \"Ishita\") -> " + students);
+
+        // 12) replace(key, value)
+        students.replace(3, "Simran", "Simran Sharma");
+        System.out.println("12) replace(3, \"Simran\", \"Simran Sharma\") -> " + students);
+
+        // 13) replace(key, value) (simple)
+        students.replace(1, "Niharika Sharma");
+        System.out.println("13) replace(1, \"Niharika Sharma\") -> " + students);
+
+        // 14) clear()
+        HashMap<Integer, String> temp = new HashMap<>(students);
+        temp.clear();
+        System.out.println("14) clear() on temp map -> " + temp);
+
+        // 15) clone()
+        HashMap<Integer, String> clonedMap = (HashMap<Integer, String>) students.clone();
+        System.out.println("15) clone() -> clonedMap: " + clonedMap);
+
+        System.out.println("\n====== Extra Small Loop Display (Human Style) ======");
+        for (Map.Entry<Integer, String> e : students.entrySet()) {
+            System.out.println("Roll No: " + e.getKey() + " | Name: " + e.getValue());
+        }
+
+        System.out.println("\nProgram finished successfully ✅");
+    }
+}
